@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">NApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_subjects">Subjects</string>
+    <string name="title_draw">Draw</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <!---->
+    <string name="home_heading">Welcome To Noon Academy</string>
+
+    <!--Google API Key-->
+    <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_add_subject">Subject</string>
+</resources>

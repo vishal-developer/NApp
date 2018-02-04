@@ -1,0 +1,61 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.noon.napp.fragment.DrawFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- TODO: Update blank fragment layout -->
+        <com.rm.freedrawview.FreeDrawView
+            android:id="@+id/draw_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:paintAlpha="255"
+            app:paintColor="@android:color/black"
+            app:paintWidth="4dp"
+            app:resizeBehaviour="crop"/>
+
+        <Button
+            android:id="@+id/btn_undo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="3dp"
+            android:background="@color/colorAccent"
+            android:text="Undoo" />
+
+        <Button
+            android:id="@+id/btn_redo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="3dp"
+            android:layout_toRightOf="@+id/btn_undo"
+            android:background="@color/colorAccent"
+            android:text="Reedoo" />
+
+        <Button
+            android:id="@+id/btn_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="3dp"
+            android:layout_toRightOf="@+id/btn_redo"
+            android:background="@color/colorAccent"
+            android:text="Colors" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="3dp"
+            android:layout_toRightOf="@+id/btn_color"
+            android:background="@color/colorAccent"
+            android:text="Save" />
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

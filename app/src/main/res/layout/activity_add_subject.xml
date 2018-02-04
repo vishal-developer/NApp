@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="subject"
+            type="com.noon.napp.model.Subject"></variable>
+
+        <variable
+            name="presenter"
+            type="com.noon.napp.presenter.AddSubjectPresenter"></variable>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/coordinator_add_sub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.noon.napp.activity.AddSubjectActivity">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context="com.noon.napp.activity.AddSubjectActivity"
+            tools:showIn="@layout/activity_add_subject">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/il_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Subject Name"
+                    android:inputType="text|textCapSentences"
+                    android:text="@={subject.name}" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/il_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/il_name">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Subject Descrition"
+                    android:inputType="text|textCapSentences"
+                    android:text="@={subject.description}" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/il_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/il_description"
+                android:layout_toLeftOf="@+id/btn_galary">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Subject Icon URL"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:text="@={subject.iconUrl}" />
+
+
+            </android.support.design.widget.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/btn_galary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/il_description"
+                android:layout_gravity="right"
+                android:layout_marginTop="15dp"
+                android:background="@color/colorAccent"
+                android:onClick="@{()->presenter.onGalleryBtnClick()}"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/il_url"
+                android:background="@color/colorAccent"
+                android:onClick="@{()->presenter.onSubmitClick(subject)}"
+                android:text="Save" />
+        </RelativeLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
