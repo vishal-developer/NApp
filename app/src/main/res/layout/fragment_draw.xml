@@ -7,7 +7,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
         <!-- TODO: Update blank fragment layout -->
         <com.rm.freedrawview.FreeDrawView
             android:id="@+id/draw_panel"
@@ -16,6 +17,9 @@
             app:paintAlpha="255"
             app:paintColor="@android:color/black"
             app:paintWidth="4dp"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:layout_above="@+id/btn_undo"
             app:resizeBehaviour="crop"/>
 
         <Button
@@ -25,7 +29,7 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="3dp"
             android:background="@color/colorAccent"
-            android:text="Undoo" />
+            android:text="@string/btn_drw_undo" />
 
         <Button
             android:id="@+id/btn_redo"
@@ -35,7 +39,7 @@
             android:layout_margin="3dp"
             android:layout_toRightOf="@+id/btn_undo"
             android:background="@color/colorAccent"
-            android:text="Reedoo" />
+            android:text="@string/btn_drw_redo" />
 
         <Button
             android:id="@+id/btn_color"
@@ -45,7 +49,7 @@
             android:layout_margin="3dp"
             android:layout_toRightOf="@+id/btn_redo"
             android:background="@color/colorAccent"
-            android:text="Colors" />
+            android:text="@string/btn_drw_chng_color" />
 
         <Button
             android:id="@+id/btn_save"
@@ -55,7 +59,7 @@
             android:layout_margin="3dp"
             android:layout_toRightOf="@+id/btn_color"
             android:background="@color/colorAccent"
-            android:text="Save" />
+            android:text="@string/btn_drw_save" />
 
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

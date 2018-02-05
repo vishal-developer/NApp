@@ -2,11 +2,8 @@ package com.noon.napp.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -18,26 +15,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
-import com.noon.napp.NApp;
 import com.noon.napp.R;
 import com.noon.napp.helper.DBHelper;
-import com.noon.napp.model.User;
 import com.noon.napp.presenter.LoginPresenter;
 import com.noon.napp.view.LoginView;
 
-import java.util.List;
-import java.util.concurrent.Callable;
-
 import javax.inject.Inject;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.Scheduler;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.observers.DisposableObserver;
-import io.reactivex.schedulers.Schedulers;
-
-public class LoginActivity extends AppCompatActivity implements LoginView{
+public class LoginActivity extends AppCompatActivity implements LoginView {
 
     public static final String TAG = LoginActivity.class.getCanonicalName();
     public static final int RC_SIGN_IN = 1;
@@ -62,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         initComponent();
     }
 
-    private void initComponent(){
+    private void initComponent() {
 
         SignInButton signInButton = findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
@@ -73,7 +58,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
             }
         });
     }
-
 
 
     private void signIn() {
@@ -89,10 +73,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     }
 
 
-
-    private void navigateToHome(){
+    private void navigateToHome() {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }

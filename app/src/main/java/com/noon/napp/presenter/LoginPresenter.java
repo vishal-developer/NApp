@@ -1,12 +1,10 @@
 package com.noon.napp.presenter;
 
 import android.app.Activity;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.noon.napp.NApp;
-import com.noon.napp.R;
 import com.noon.napp.helper.DBHelper;
 import com.noon.napp.model.User;
 import com.noon.napp.view.LoginView;
@@ -35,16 +33,16 @@ public class LoginPresenter {
     @Inject
     DBHelper dbHelper;
 
-    public LoginPresenter(Activity activity, LoginView view){
+    public LoginPresenter(Activity activity, LoginView view) {
         this.activity = activity;
         this.view = view;
-        ((NApp)activity.getApplication()).getAppComponent().inject(this);
+        ((NApp) activity.getApplication()).getAppComponent().inject(this);
     }
 
-    public void manageLogin(GoogleSignInAccount account){
-        Log.d(TAG, "account"+account);
-        if(null != account){
-            Log.d(TAG, "account"+account);
+    public void manageLogin(GoogleSignInAccount account) {
+        Log.d(TAG, "account" + account);
+        if (null != account) {
+            Log.d(TAG, "account" + account);
             User user = new User(account.getId(), account.getDisplayName(),
                     account.getEmail());
             saveUser(user).subscribeOn(Schedulers.io())
@@ -52,9 +50,9 @@ public class LoginPresenter {
                     .subscribeWith(new DisposableObserver<User>() {
                         @Override
                         public void onNext(User user) {
-                            Log.d(TAG, "user"+user);
-                            if(null != user){
-                                ((NApp)activity.getApplication()).setUserId(user.getFbId());
+                            Log.d(TAG, "user" + user);
+                            if (null != user) {
+                                ((NApp) activity.getApplication()).setUserId(user.getFbId());
                                 view.loginSuccess();
                             }
                         }
@@ -80,11 +78,11 @@ public class LoginPresenter {
             @Override
             public ObservableSource<? extends User> call() throws Exception {
 
-                Log.d(TAG,"saveUser");
+                Log.d(TAG, "saveUser");
 //                DBHelper dbHelper = ((NApp)getApplication()).getDb();
-                Log.d(TAG,"dbHelper :"+dbHelper);
+                Log.d(TAG, "dbHelper :" + dbHelper);
                 List<Long> insertList = dbHelper.userDao().insert(user);
-                Log.d(TAG,"saveUser after insertions"+insertList.size());
+                Log.d(TAG, "saveUser after insertions" + insertList.size());
                 return Observable.just(user);
             }
         });

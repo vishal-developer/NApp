@@ -1,6 +1,5 @@
 package com.noon.napp.manager;
 
-import com.noon.napp.activity.LoginActivity;
 import com.noon.napp.presenter.AddSubjectPresenter;
 import com.noon.napp.presenter.HomePresenter;
 import com.noon.napp.presenter.LoginPresenter;
@@ -18,7 +17,10 @@ import dagger.Component;
 @Component(dependencies = {}, modules = {AppModule.class, DBManager.class})
 public interface AppComponent {
     void inject(LoginPresenter loginPresenter);
+
     void inject(AddSubjectPresenter addSubjectPresenter);
+
     void inject(HomePresenter homePresenter);
+
     void inject(SubjectPresenter subjectPresenter);
 }

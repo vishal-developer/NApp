@@ -1,20 +1,11 @@
 package com.noon.napp.utility;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.CursorLoader;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Environment;
-import android.provider.DocumentsContract;
-import android.provider.MediaStore;
 import android.util.Log;
-
-import com.noon.napp.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,10 +19,11 @@ import java.io.OutputStream;
 public class FilePathUtil {
 
     static final String TAG = FilePathUtil.class.getSimpleName();
-    public static Bitmap getImageFromPath(String path){
-        if(null != path){
+
+    public static Bitmap getImageFromPath(String path) {
+        if (null != path) {
             File imageFile = new File(path);
-            if(null != imageFile && imageFile.exists()){
+            if (null != imageFile && imageFile.exists()) {
                 Bitmap imageBitmap = BitmapFactory.decodeFile(imageFile.getAbsolutePath());
                 return imageBitmap;
             }
@@ -48,7 +40,6 @@ public class FilePathUtil {
         newBitmap.compress(Bitmap.CompressFormat.JPEG, 80, stream);
         stream.close();
     }
-
 
 
     public static File getStorageDir(String albumName) {

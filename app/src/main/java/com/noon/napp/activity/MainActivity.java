@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.noon.napp.NApp;
 import com.noon.napp.R;
 import com.noon.napp.fragment.DrawFragment;
 import com.noon.napp.fragment.HomeFragment;

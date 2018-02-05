@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
@@ -64,10 +63,11 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
     class ViewHolder extends RecyclerView.ViewHolder implements SubjectItemView {
         private LayoutSubjectItemBinding binding;
         ImageView imageView;
+
         public ViewHolder(LayoutSubjectItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
-            imageView = (ImageView)binding.getRoot().findViewById(R.id.iv_subject_image);
+            imageView = (ImageView) binding.getRoot().findViewById(R.id.iv_subject_image);
         }
 
         public void bindSubjectItem(Subject subject) {
@@ -77,10 +77,10 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
 
         }
 
-        public void setImageIcon(Bitmap bitmap){
-            if(null != bitmap){
+        public void setImageIcon(Bitmap bitmap) {
+            if (null != bitmap) {
                 imageView.setImageBitmap(bitmap);
-            }else{
+            } else {
                 Log.d(TAG, "null image");
             }
         }
@@ -90,7 +90,6 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
             onItemClickLister.onClick(getSubject(getLayoutPosition()), getLayoutPosition());
         }
     }
-
 
 
     public class SubjectItemPresenter {

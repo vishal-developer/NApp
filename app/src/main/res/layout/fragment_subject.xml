@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="No subjects are available!"
+        android:text="@string/error_subject_empty"
         android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="gone" />

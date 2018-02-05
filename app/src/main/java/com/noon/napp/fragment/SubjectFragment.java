@@ -17,7 +17,6 @@ import com.noon.napp.activity.AddSubjectActivity;
 import com.noon.napp.adapter.SubjectListAdapter;
 import com.noon.napp.model.Subject;
 import com.noon.napp.presenter.SubjectPresenter;
-import com.noon.napp.view.AddSubjectView;
 import com.noon.napp.view.SubjectView;
 
 import java.util.ArrayList;
@@ -30,7 +29,7 @@ import java.util.List;
  * Use the {@link SubjectFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SubjectFragment extends Fragment implements SubjectView{
+public class SubjectFragment extends Fragment implements SubjectView {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -98,7 +97,7 @@ public class SubjectFragment extends Fragment implements SubjectView{
 
     private void bindItems() {
 
-        tvError = (TextView)view.findViewById(R.id.tv_error_text);
+        tvError = (TextView) view.findViewById(R.id.tv_error_text);
         view.findViewById(R.id.subject_add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,7 +116,7 @@ public class SubjectFragment extends Fragment implements SubjectView{
         adapter.setOnItemClickLister(new SubjectListAdapter.OnItemClickLister() {
             @Override
             public void onClick(Subject subject, int position) {
-                Log.d(TAG, "Subject :"+subject);
+                Log.d(TAG, "Subject :" + subject);
                 presenter.deleteSubject(subject);
             }
         });
@@ -140,10 +139,10 @@ public class SubjectFragment extends Fragment implements SubjectView{
     @Override
     public void getSubjects(List<Subject> subjectList) {
         this.subjectList.clear();
-        if(subjectList.size() > 0){
+        if (subjectList.size() > 0) {
             this.subjectList.addAll(subjectList);
             tvError.setVisibility(View.GONE);
-        }else{
+        } else {
             tvError.setVisibility(View.VISIBLE);
         }
         adapter.notifyDataSetChanged();
@@ -151,7 +150,7 @@ public class SubjectFragment extends Fragment implements SubjectView{
 
     @Override
     public void deleteSubject(int deletedCount) {
-        if(deletedCount>0){
+        if (deletedCount > 0) {
             presenter.getSubjects();
         }
     }

@@ -15,7 +15,6 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
@@ -32,13 +31,14 @@ public class SubjectPresenter {
 
     @Inject
     DBHelper db;
-    public SubjectPresenter(Activity activity, SubjectView subjectView){
+
+    public SubjectPresenter(Activity activity, SubjectView subjectView) {
         this.activity = activity;
         this.subjectView = subjectView;
         ((NApp) activity.getApplication()).getAppComponent().inject(this);
     }
 
-    public void getSubjects(){
+    public void getSubjects() {
         querySubjectList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -61,15 +61,15 @@ public class SubjectPresenter {
 
     }
 
-    public void deleteSubject(Subject subject){
-        Log.d(TAG, "deleteSubject :"+subject);
+    public void deleteSubject(Subject subject) {
+        Log.d(TAG, "deleteSubject :" + subject);
         queryQueryDeleteSubject(subject)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableObserver<Integer>() {
                     @Override
                     public void onNext(Integer deletedCount) {
-                        Log.d(TAG, "deletedCount :"+deletedCount);
+                        Log.d(TAG, "deletedCount :" + deletedCount);
                         subjectView.deleteSubject(deletedCount);
                     }
 
@@ -86,8 +86,7 @@ public class SubjectPresenter {
     }
 
 
-
-    private Observable<Integer> queryQueryDeleteSubject(final Subject subject){
+    private Observable<Integer> queryQueryDeleteSubject(final Subject subject) {
         return Observable.defer(new Callable<ObservableSource<? extends Integer>>() {
             @Override
             public ObservableSource<? extends Integer> call() throws Exception {
@@ -97,7 +96,7 @@ public class SubjectPresenter {
         });
     }
 
-    private Observable<List<Subject>> querySubjectList(){
+    private Observable<List<Subject>> querySubjectList() {
         return Observable.defer(new Callable<ObservableSource<? extends List<Subject>>>() {
             @Override
             public ObservableSource<? extends List<Subject>> call() throws Exception {

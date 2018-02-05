@@ -51,7 +51,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Subject Name"
+                    android:hint="@string/hint_subject_name"
                     android:inputType="text|textCapSentences"
                     android:text="@={subject.name}" />
             </android.support.design.widget.TextInputLayout>
@@ -65,7 +65,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Subject Descrition"
+                    android:hint="@string/hint_subject_desc"
                     android:inputType="text|textCapSentences"
                     android:text="@={subject.description}" />
             </android.support.design.widget.TextInputLayout>
@@ -80,7 +80,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Subject Icon URL"
+                    android:hint="@string/hint_subject_icon"
                     android:inputType="none"
                     android:editable="false"
                     android:text="@={subject.iconUrl}" />
@@ -106,7 +106,7 @@
                 android:layout_below="@+id/il_url"
                 android:background="@color/colorAccent"
                 android:onClick="@{()->presenter.onSubmitClick(subject)}"
-                android:text="Save" />
+                android:text="@string/btn_save" />
         </RelativeLayout>
     </android.support.design.widget.CoordinatorLayout>
 </layout>
